@@ -1,9 +1,79 @@
 import { useNavigate } from "react-router-dom"
-import imagefundo from "../../assets/planet2.jpg"
+import { useState } from "react"
+import imagefundo from "../../assets/imgUsuarios1.jpg"
+import axios from "axios"
+import { toast } from "react-toastify"
+
+
+
+
 
 function ForgotPassword() {
+  const navigate = useNavigate()
 
-    const navigate = useNavigate()
+  const [etapa, setEtapa] = useState("email")
+  const [email, setEmail] = useState("")
+  const [novaSenha, setNovaSenha] = useState("")
+  const [confirmarSenha, setConfirmarSenha] = useState("")
+  const [mensagemErro, setMensagemErro] = useState("")
+  const [mensagemSucesso, setMensagemSucesso] = useState("")
+
+  async function handleRecuperarSenha() {
+
+   try {
+    const response = await axios.post("http://localhost:3000/recuperar-senha", {
+      email
+    })
+
+    if (response.status === 200) {
+      toast.success("E-mail reconhecido com sucesso!.")
+      setEtapa("novaSenha")
+    }
+   } catch (error) {
+    console.log(error)
+  console.log(error.response?.data)
+    toast.error("E-mail não encontrado")
+   }
+
+  }
+
+  async function handleSalvarSenha() {
+
+    if (novaSenha.trim() === "" || confirmarSenha.trim() === "") {
+      toast.error("Preencha todos os campos")
+      return
+    }
+
+    if (novaSenha !== confirmarSenha) {
+      toast.error("As senhas não coincidem")
+      return
+    }
+
+    try {
+      const response = await axios.put("http://localhost:3000/atualizar-senha", {
+        email,
+        novaSenha
+      })
+    
+
+
+    if (response.status === 200) {
+    toast.success("Senha alterada com sucesso!")
+
+    setTimeout(() => {
+      navigate("/")
+
+    }, 1600)
+  }
+} catch (error) {
+  setMensagemErro("Erro ao salvar senha")
+  console.log(error)
+}
+  }
+
+
+
+
   return (
     <div
       className="
@@ -16,7 +86,7 @@ function ForgotPassword() {
         backgroundImage: `url(${imagefundo})`
       }}
     >
-        {/* camada escura */}
+      {/* camada escura */}
       <div className="absolute inset-0 bg-black/0"></div>
 
 
@@ -33,17 +103,23 @@ function ForgotPassword() {
         "
       >
         <h1 className="text-white text-3xl font-bold mb-2">
-          Recuperação de senha
+          {etapa === "email" ? "Recuperação de senha" : "Nova Senha"}
         </h1>
 
         <p className="text-white text-sm mb-6">
-          Digite seu email para receber instruções
+          {etapa === "email"
+            ? "Digite seu email para recuperar sua senha"
+            : "Digite e confirme sua nova senha"}
         </p>
 
-        <input
-          type="email"
-          placeholder="Digite seu email"
-          className="
+        {etapa === "email" ? (
+          <>
+            <input
+              type="email"
+              placeholder="Digite seu email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="
             w-full
             p-3
             rounded-lg
@@ -55,10 +131,17 @@ function ForgotPassword() {
             focus:border-white
             mb-4
           "
-        />
+            />
 
-        <button
-          className="
+            {mensagemErro && (
+              <p className="text-red-300 text-sm mb-3">
+                {mensagemErro}
+              </p>
+            )}
+
+            <button
+              onClick={handleRecuperarSenha}
+              className="
             cursor-pointer
             w-full
             py-3
@@ -71,18 +154,101 @@ function ForgotPassword() {
             transition-all
             duration-300
           "
-        >
-          Enviar link
-        </button>
-      <div className="flex justify-center mt-5">
-        <button 
-        onClick={()=> navigate ("/")}
-        className="font-extrabold cursor-pointer text-center text-1xl text-white mt-5 hover:text-white transition-all">
-           
-          Voltar ao login
-          
-        </button>
-      </div>
+            >
+              Recuperar Senha
+            </button>
+
+          </>
+        ) : (
+          <>
+
+            <input
+              type="password"
+              placeholder="Nova senha"
+              value={novaSenha}
+              onChange={(e) => setNovaSenha(e.target.value)}
+              className="
+                w-full
+                p-3
+                rounded-lg
+                bg-white/10
+                border border-white/20
+                text-white
+                placeholder-white
+                outline-none
+                focus:border-white
+                mb-4
+              "
+            />
+
+            <input
+              type="password"
+              placeholder="Confirmar senha"
+              value={confirmarSenha}
+              onChange={(e) => setConfirmarSenha(e.target.value)}
+              className="
+                w-full
+                p-3
+                rounded-lg
+                bg-white/10
+                border border-white/20
+                text-white
+                placeholder-white
+                outline-none
+                focus:border-white
+                mb-4
+              "
+            />
+
+            {mensagemErro && (
+              <p className="text-red-300 text-sm mb-3">
+                {mensagemErro}
+              </p>
+            )}
+
+
+            {mensagemSucesso && (
+              <p className="text-green-300 text-sm mb-3">
+                {mensagemSucesso}
+              </p>
+            )}
+
+            <button
+              onClick={handleSalvarSenha}
+              className="
+                cursor-pointer
+                w-full
+                py-3
+                rounded-lg
+                bg-black
+                text-white
+                font-bold
+                hover:scale-105
+                transition-all
+                duration-300
+              "
+            >
+              Salvar Senha
+            </button>
+          </>
+        )}
+
+        <div className="flex justify-center mt-5">
+          <button
+            onClick={() => navigate("/")}
+            className="
+        font-extrabold
+         cursor-pointer
+          text-center
+           text-1xl
+            text-white
+             mt-5 hover:text-white
+              transition-all">
+
+            Voltar ao login
+
+          </button>
+        </div>
       </div>
     </div>
   )

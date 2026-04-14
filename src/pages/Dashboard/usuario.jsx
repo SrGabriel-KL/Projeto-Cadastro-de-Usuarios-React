@@ -36,7 +36,7 @@ function Usuario() {
             transition-all duration-300
           "
         >
-          Cadastrar Usuário
+          Cadastrar Novo Usuário
         </button>
 
         <button

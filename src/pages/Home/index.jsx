@@ -16,33 +16,78 @@ import astro9 from "/src/assets/astronauts/astro9.png"
 import astro10 from "/src/assets/astronauts/astro10.png"
 import astro11 from "/src/assets/astronauts/astro11.png"
 import astro12 from "/src/assets/astronauts/astro12.png"
+import { toast } from 'react-toastify';
 
 
 
 
 
 function App() {
-  const astronautImages = [astro1, astro2, astro3, astro4, astro5, astro6, astro7, astro8, astro9, astro10, astro11, astro12]
+  const astronautImages =
+
+    [astro1,
+      astro2, astro3, astro4, astro5,
+      astro6, astro7, astro8, astro9,
+      astro10, astro11, astro12]
+
   const inputName = useRef()
   const inputAge = useRef()
   const inputEmail = useRef()
   const inputPassword = useRef()
 
+
   const navigate = useNavigate()
 
-  async function registerNewUser() {
-    const randomAvatar =
-      Math.floor(Math.random() * astronautImages.length)
 
-    await api.post('/usuarios', {
-      email: inputEmail.current.value,
-      age: Number(inputAge.current.value),
-      name: inputName.current.value,
-      avatarId: randomAvatar
+
+  async function registerNewUser() {
+
+    const name = inputName.current.value
+    const age = inputAge.current.value
+    const email = inputEmail.current.value
+    const password = inputPassword.current.value
+
+
+    console.log({
+      name,
+      age,
+      email,
+      password
     })
 
-    navigate('/dashboard')
+    if (!name || !age || !email || !password) {
+      toast.error("Preencha todas as informações!")
+
+      return
+    }
+
+    const randomAvatar = Math.floor(
+      Math.floor(Math.random() * astronautImages.length)
+    )
+
+    try {
+      await api.post('/usuarios', {
+        name,
+        age: Number(age),
+        email,
+        password,
+        avatarId: randomAvatar,
+
+      })
+
+      toast.success("Usuário cadastrado com sucesso!")
+      navigate("/")
+    } catch (error) {
+      console.error("Erro ao cadastrar usuário:", error)
+      toast.error("Preencha todas as informações!")
+    }
   }
+
+
+
+
+
+
 
 
   return (
@@ -165,15 +210,15 @@ function App() {
           </div>
 
           <div>
-  <label className="text-center text-[15px] font-normal text-white">
-    Email<span>*</span>
-  </label>
+            <label className="text-center text-[15px] font-normal text-white">
+              Email<span>*</span>
+            </label>
 
-  <input
-    type="email"
-    placeholder="E-mail do Usuário"
-    ref={inputEmail}
-    className="
+            <input
+              type="email"
+              placeholder="E-mail do Usuário"
+              ref={inputEmail}
+              className="
       w-full
       px-4 py-3
       rounded-xl
@@ -187,8 +232,8 @@ function App() {
       focus:shadow-[0_0_25px_rgba(34,211,238,0.6)]
       transition-all duration-300
     "
-  />
-</div>
+            />
+          </div>
 
 
 
@@ -207,7 +252,7 @@ function App() {
   focus:outline-none
   focus:shadow-[0_0_25px_rgba(34,211,238,0.6)]
   transition-all duration-300"
-              type="email"
+              type="password"
               placeholder="Senha do Usuário"
               ref={inputPassword}
             />
@@ -221,7 +266,7 @@ function App() {
         <div className="flex justify-center mt-0">
           <button
             type="button"
-             onClick={registerNewUser}
+            onClick={registerNewUser}
             className="
               relative overflow-visible
               px-19 py-5 rounded-full
@@ -248,7 +293,7 @@ function App() {
         <div className="absolute left-6 bottom-7">
           <button
             type="button"
-           onClick={() => navigate('/')}
+            onClick={() => navigate('/')}
             className="
       relative overflow-visible
       px-10 py-5 rounded-full

@@ -4,25 +4,46 @@ import VideoFundo from '/src/assets/PlayerVideoFundo.webm'
 import imgButton from "/src/assets/imgButtonTwo.png"
 import imgButtonTwo from "/src/assets/planetBlue2.jpg"
 import imgButtonTree from "/src/assets/planetBlue.jpg"
+import api from '../../services/api.js'
+import { toast } from "react-toastify"
 
 
 
 
 function Login() {
-  const inputEmail = useRef()
+  const inputLogin = useRef()
   const inputPassword = useRef()
 
   const navigate = useNavigate()
 
 
-  function loginUser() {
-    const email = inputEmail.current.value
-    const password = inputPassword.current.value
 
-    if (email && password) {
-      navigate("/Home")
-    }
+  async function handleLogin() {
+  const login = inputLogin.current.value.trim()
+  const password = inputPassword.current.value.trim()
+
+  if (!login || !password) {
+    toast("Preencha login e senha válidos.")
+    return
   }
+
+  try {
+    const response = await api.post("/login", {
+      name: login,
+      password
+    })
+
+    console.log("LOGIN OK:", response.data)
+
+    toast.success("Bem-vindo ao sistema Cosmo Sync!")
+    navigate("/dashboard")
+  } catch (error) {
+    console.error("ERRO LOGIN:", error.response?.data || error)
+    toast.error("Senha ou login incorretos.")
+  }
+}
+
+
 
   return (
     <div className="relative h-screen flex flex-col items-center justify-evenly p-5 overflow-hidden">
@@ -102,7 +123,7 @@ function Login() {
   "
             type="text"
             placeholder="Login"
-            ref={inputEmail}
+            ref={inputLogin}
 
           />
 
@@ -159,7 +180,7 @@ function Login() {
         <div className="flex gap-6 justify-center mt-6">
           <button
             type="button"
-            onClick={()=> navigate("/dashboard")}
+            onClick={handleLogin}
             className="
                      relative overflow-visible
                      px-19 py-5 rounded-full
