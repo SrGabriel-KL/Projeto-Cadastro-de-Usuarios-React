@@ -66,7 +66,7 @@ function App() {
     )
 
     try {
-      await api.post('/usuarios', {
+     const response =  await api.post('/usuarios', {
         name,
         age: Number(age),
         email,
@@ -74,6 +74,13 @@ function App() {
         avatarId: randomAvatar,
 
       })
+
+      sessionStorage.setItem(
+        "usuarioDashboard",
+        JSON.stringify(response.data)
+      )
+
+
 
       toast.success("Usuário cadastrado com sucesso!")
       navigate("/")

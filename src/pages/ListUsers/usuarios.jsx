@@ -36,15 +36,7 @@ function ListUsers() {
     getUsers()
   }, [])
 
-  async function deleteUsers(id) {
-    await api.delete(`/usuarios/${id}`)
-
-    const updatedUsers = users.filter(user => user.id !== id)
-
-    setUsers(updatedUsers)
-
-  }
-
+  
 
   return (
     <div>
@@ -110,12 +102,6 @@ function ListUsers() {
                 <p className="text-sm opacity-80">{user.age} anos</p>
               </div>
 
-              <img
-                src={lixeira}
-                alt="icone-lixo"
-                onClick={() => deleteUsers(user.id)}
-                className="w-6 h-6 cursor-pointer hover:scale-110 transition hover:opacity-80 active:opacity-50"
-              />
 
             </div>
 

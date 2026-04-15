@@ -35,6 +35,11 @@ function Login() {
 
     console.log("LOGIN OK:", response.data)
 
+    sessionStorage.setItem (
+      "usuarioDashboard",
+      JSON.stringify(response.data.user)
+    )
+
     toast.success("Bem-vindo ao sistema Cosmo Sync!")
     navigate("/dashboard")
   } catch (error) {
