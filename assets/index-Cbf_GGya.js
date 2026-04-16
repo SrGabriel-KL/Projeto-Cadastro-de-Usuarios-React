@@ -98,7 +98,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
       bg-clip-text
       text-transparent
       drop-shadow-[0_0_15px_rgba(59,130,246,0.6)]
-    `,children:`Sync`})]}),(0,W.jsx)(`img`,{src:`/src/assets/PlanetDestruction.png`,alt:`Logo`,className:`w-25 h-25 object-contain`})]}),(0,W.jsx)(`h2`,{className:`
+    `,children:`Sync`})]}),(0,W.jsx)(`img`,{src:Kc,alt:`Logo`,className:`w-25 h-25`})]}),(0,W.jsx)(`h2`,{className:`
       text-[25px]
       font-light
       tracking-wide
