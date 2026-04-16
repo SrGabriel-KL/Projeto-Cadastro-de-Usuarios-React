@@ -131,6 +131,39 @@ input:-webkit-autofill:active {
 
 
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(20, 5, 5, 0.95);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #ff6a2a,
+    #d94a1e,
+    #7a1c0f
+  );
+  border-radius: 20px;
+  box-shadow: 0 0 12px rgba(217, 74, 30, 0.7);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #ff8147,
+    #e05222,
+    #8f2212
+  );
+}
+
+
+
+
+
+
 @keyframes smokeLeft {
   0% {
     transform: translateY(0) scale(1);

@@ -43,7 +43,7 @@ function ListUsers() {
 
 
       <div
-        className="bg-fixed min-h-screen w-screen flex flex-col items-center px-10 py-8 bg-cover bg-center bg-no-repeat"
+       className="bg-fixed min-h-screen w-full flex flex-col items-center px-10 py-8 bg-cover bg-center bg-no-repeat overflow-x-hidden"
         style={{
           backgroundImage: `url(${imagefundo})`,
           backgroundSize: "100%"
