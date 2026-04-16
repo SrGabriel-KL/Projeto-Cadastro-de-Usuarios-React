@@ -1,13 +1,12 @@
 import { useRef } from "react"
 import { useNavigate } from "react-router-dom"
-import VideoFundo from '/src/assets/PlayerVideoFundo.webm'
-import imgButton from "/src/assets/imgButtonTwo.png"
-import imgButtonTwo from "/src/assets/planetBlue2.jpg"
-import imgButtonTree from "/src/assets/planetBlue.jpg"
-import api from '../../services/api.js'
+import VideoFundo from "../../assets/PlayerVideoFundo.webm"
+import imgButton from "../../assets/imgButtonTwo.png"
+import imgButtonTwo from "../../assets/planetBlue2.jpg"
+import imgButtonTree from "../../assets/planetBlue.jpg"
+import api from "../../services/api.js"
 import { toast } from "react-toastify"
-import imgLogo from "../../assets/logo.png"
-
+import imgLogo from "../../assets/planetDestruction.png"
 
 
 
