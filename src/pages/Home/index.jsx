@@ -17,6 +17,7 @@ import astro10 from "/src/assets/astronauts/astro10.png"
 import astro11 from "/src/assets/astronauts/astro11.png"
 import astro12 from "/src/assets/astronauts/astro12.png"
 import { toast } from 'react-toastify';
+import imgLogo from "../../assets/planetDestruction.png"
 
 
 
@@ -145,10 +146,10 @@ function App() {
             </h1>
 
             <img
-              src="/src/assets/PlanetDestruction.png"
-              alt="Logo"
-              className="w-25 h-25 object-contain"
-            />
+                  src={imgLogo}
+                  alt="Logo"
+                  className="w-25 h-25"
+                />
           </div>
 
           {/* Linha de baixo */}
