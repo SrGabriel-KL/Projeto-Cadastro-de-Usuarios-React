@@ -2,10 +2,9 @@ import { useEffect, useState } from "react"
 import api from "../../services/api.js"
 import DefaultButton from "../../components/Button/index.jsx"
 import imgButtonPrimary from "../../assets/AstroLava.png"
-import imgButtonSecundary from "../../assets/planetBlue.jpg"
-import lixeira from "../../assets/Lixo.png"
+import imgButtonSecundary from "../../assets/FundoUsuarios/fundousuario1.jpg"
 import { useNavigate } from "react-router-dom"
-import imagefundo from "../../assets/planet2.jpg"
+import imagefundo from "../../assets/FundoUsuarios/fundousuario6.jpg"
 import astro1 from "/src/assets/astronauts/astro1.png"
 import astro2 from "/src/assets/astronauts/astro2.png"
 import astro3 from "/src/assets/astronauts/astro3.png"
@@ -50,14 +49,16 @@ function ListUsers() {
           backgroundSize: "100%"
         }}
       >
-        <div className="relative inline-block mb-8">
+        <div className="relative inline-block mt-12 mb-30">
           <h2
             className="
-      text-6xl font-black text-center
+      text-6xl
+      font-extrabold
+      text-center
       text-white
-      tracking-widest
-      drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]
-      bg-5
+      tracking-wide
+      drop-shadow-[0_0_20px_rgba(255,255,255,0.45)]
+      leading-tight
     "
           >
             Lista de Usuários
@@ -68,7 +69,7 @@ function ListUsers() {
           <span className="absolute -bottom-2 left-1/2 text-white animate-pulse">✦</span>
         </div>
 
-        <div className="grid grid-cols-3 gap-20">
+        <div className="grid grid-cols-3 mt-12 gap-20">
           {users.map((user) => (
 
 
@@ -112,12 +113,12 @@ function ListUsers() {
         </div>
 
 
-        <div className="sticky top-0 w-full flex justify-between items-center p-4 bg-black/30 backdrop-blur-md z-50">
+        <div className="fixed bottom-130 left-1/2 -translate-x-1/2 flex items-center gap-220 z-50">
           <DefaultButton
             onClick={() => navigate("/dashboard")}
             style={{
               backgroundImage: `url(${imgButtonSecundary})`,
-              backgroundSize: "148%",
+              backgroundSize: "160%",
               backgroundPosition: "center",
             }}
           >Voltar</DefaultButton>
@@ -126,7 +127,7 @@ function ListUsers() {
             onClick={() => navigate("/")}
             style={{
               backgroundImage: `url(${imgButtonPrimary})`,
-              backgroundSize: "148%",
+              backgroundSize: "160%",
               backgroundPosition: "center",
             }}
           >

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import imagefundo from "../../assets/imgFundoGalaxy.jpg"
+import imagefundo from "../../assets/FundoDashboard/imgFundoGalaxy.jpg"
 import imgCardUsuarios from "/src/assets/astronauts/AstroButton.png"
 import imgSaida from "/src/assets/astronauts/saidaa.png"
 import imgNewUser from "/src/assets/astronauts/newuser.png"
@@ -49,115 +49,115 @@ function Usuario() {
     sessionStorage.removeItem("usuarioDashboard")
     setUserPadrao(null)
   }
-  
+
 
 
   return (
-    <div
-      className="
-        relative
-        min-h-screen
-        flex flex-col items-center justify-center
-        px-8
-        bg-cover bg-center bg-no-repeat
-        overflow-hidden
-      "
-      style={{
-        backgroundImage: `url(${imagefundo})`
-      }}
-    >
-      {/* Glow decorativo */}
-      <div className="absolute top-24 w-96 h-32 bg-cyan-400/20 blur-3xl rounded-full"></div>
-
-      {/* Estrelas */}
-      <div className="absolute top-20 left-20 w-2 h-2 bg-white rounded-full animate-pulse"></div>
-      <div className="absolute top-40 right-32 w-1 h-1 bg-cyan-300 rounded-full animate-ping"></div>
-      <div className="absolute bottom-32 left-40 w-2 h-2 bg-white rounded-full animate-pulse"></div>
-      <div className="absolute bottom-20 right-20 w-1 h-1 bg-purple-300 rounded-full animate-pulse"></div>
-
-      {/* Conteúdo */}
-      <div className="relative z-10 flex flex-col items-center">
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <img
-            src={imgGalaxyIcon}
-            alt="Logo"
-            className="w-50 h-50 object-contain"
-          />
-
-          <h1 className="text-white text-5xl font-bold drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]">
-            Dashboard Cosmo Sync
-          </h1>
-        </div>
-        <div className="w-4 h-1 rounded-full  shadow-[0_0_20px_rgba(34,211,238,0.8)] mb-14"></div>
-
-        {userPadrao && (
-          <div className="mb-12 w-full flex justify-center">
-            <div
-              className="
-      w-[500px]
-      rounded-[35px]
-      bg-black/80
-      backdrop-blur-md
-      border border-cyan-400/20
-      shadow-[0_0_25px_rgba(34,211,238,0.15)]
-      px-8 py-6
-      flex items-center justify-between
+  <div
+    className="
+      relative
+      min-h-screen
+      flex flex-col items-center
+      px-8
+      py-10
+      pb-24
+      bg-cover bg-center bg-no-repeat
+      overflow-y-auto
     "
-            >
-              
-              <div className="flex items-center gap-6">
-                <img
-                  src={astronautImages[userPadrao.avatarId]}
-                  alt={userPadrao.name}
-                  className="w-20 h-20 rounded-full object-cover"
-                />
+    style={{
+      backgroundImage: `url(${imagefundo})`
+    }}
+  >
+    {/* Glow decorativo */}
+    <div className="absolute top-24 w-96 h-32 bg-cyan-400/20 blur-3xl rounded-full"></div>
 
-                <div>
-                  <h2 className="text-white text-1xl font-bold">
-                    {userPadrao.name}
+    {/* Estrelas */}
+    <div className="absolute top-20 left-20 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+    <div className="absolute top-40 right-32 w-1 h-1 bg-cyan-300 rounded-full animate-ping"></div>
+    <div className="absolute bottom-32 left-40 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+    <div className="absolute bottom-20 right-20 w-1 h-1 bg-purple-300 rounded-full animate-pulse"></div>
 
-                  </h2>
+    {/* Conteúdo */}
+    <div className="relative z-10 flex flex-col items-center scale-[0.75] origin-top -mb-70">
 
-                  <p className="text-gray-300 text-lg">
-                    {userPadrao.email}
+      {/* Header */}
+      <div className="flex items-center justify-center gap-2 mb-10">
+        <img
+          src={imgGalaxyIcon}
+          alt="Logo"
+          className="w-40 h-50 object-contain mt-6"
+        />
 
-                  </p>
+        <h1 className="text-white mt-10 text-6xl font-bold drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]">
+          Dashboard Cosmo Sync
+        </h1>
+      </div>
 
-                  <p className="text-gray-400 text-lg">
-                    {userPadrao.age} anos
+      {userPadrao && (
+        <div className="mb-16 w-full flex justify-center">
+          <div
+            className="
+              w-[500px]
+              rounded-[35px]
+              bg-black/80
+              backdrop-blur-md
+              border border-cyan-400/20
+              shadow-[0_0_25px_rgba(34,211,238,0.15)]
+              px-8 py-6
+              flex items-center justify-between
+            "
+          >
+            <div className="flex items-center gap-6">
+              <img
+                src={astronautImages[userPadrao.avatarId]}
+                alt={userPadrao.name}
+                className="w-20 h-20 rounded-full object-cover"
+              />
 
-                  </p>
-                </div>
+              <div>
+                <h2 className="text-white  text-xl font-bold">
+                  {userPadrao.name}
+                </h2>
+
+                <p className="text-gray-300 text-lg">
+                  {userPadrao.email}
+                </p>
+
+                <p className="text-gray-400 text-lg">
+                  {userPadrao.age} anos
+                </p>
               </div>
-
-              <button 
-              onClick={() => deleteUsers(userPadrao.id)}
-              className="cursor-pointer text-white text-2xl hover:scale-110 transition-all">
-                🗑️
-              </button>
             </div>
-          </div>
-        )}
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full max-w-6xl">
+            <button
+              onClick={() => deleteUsers(userPadrao.id)}
+              className="cursor-pointer text-white text-2xl hover:scale-110 transition-all"
+            >
+              🗑️
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl ">
           {/* Card 1 */}
           <div
             onClick={() => navigate("/home")}
             className="
-              cursor-pointer
-              relative
-              rounded-[30px]
-              p-8
-              h-[320px]
-              w-[280px]
-              bg-gradient-to-b from-[#0d2c4f] to-[#08111d]
-              border border-cyan-400/30
-              shadow-[0_15px_30px_rgba(0,255,255,0.08)]
-              hover:scale-105
-              transition-all duration-300
-              overflow-hidden
-            "
+    cursor-pointer
+    relative
+    rounded-[30px]
+    p-8
+    h-[320px]
+    w-[280px]
+    bg-gradient-to-b from-[#CC00FF] to-[#3a0050]
+    border border-[#CC00FF]/40
+    shadow-[0_15px_30px_rgba(204,0,255,0.25)]
+    hover:scale-105
+    transition-all duration-300
+    overflow-hidden
+  "
           >
             <div className="absolute top-0 left-0 w-full h-[calc(100%-12px)] bg-black rounded-[30px] flex flex-col items-center justify-center text-center px-6">
               <img
@@ -182,19 +182,19 @@ function Usuario() {
           <div
             onClick={() => navigate("/lista-de-usuarios")}
             className="
-              cursor-pointer
-              relative
-              rounded-[30px]
-              p-8
-              h-[320px]
-              w-[280px]
-              bg-gradient-to-b from-[#13254a] to-[#08111d]
-              border border-purple-400/30
-              shadow-[0_15px_30px_rgba(168,85,247,0.08)]
-              hover:scale-105
-              transition-all duration-300
-              overflow-hidden
-            "
+    cursor-pointer
+    relative
+    rounded-[30px]
+    p-8
+    h-[320px]
+    w-[280px]
+    bg-gradient-to-b from-[#FF6A00] to-[#3a1400]
+    border border-orange-400/40
+    shadow-[0_15px_30px_rgba(255,106,0,0.25)]
+    hover:scale-105
+    transition-all duration-300
+    overflow-hidden
+  "
           >
             <div className="absolute top-0 left-0 w-full h-[calc(100%-12px)] bg-black rounded-[30px] flex flex-col items-center justify-center text-center px-6">
               <img
@@ -218,8 +218,9 @@ function Usuario() {
           {/* Card 3 */}
           <div
             onClick={() => {
-               sessionStorage.removeItem("usuarioDashboard")
-              navigate("/")}}
+              sessionStorage.removeItem("usuarioDashboard")
+              navigate("/")
+            }}
             className="
     cursor-pointer
     relative
@@ -253,7 +254,9 @@ function Usuario() {
 
             {/* faixa vermelha embaixo */}
             <div className="absolute bottom-0 left-0 w-full h-3 bg-red-500 shadow-[0_0_25px_rgba(239,68,68,0.9)]"></div>
+          
           </div>
+
 
 
         </div>
