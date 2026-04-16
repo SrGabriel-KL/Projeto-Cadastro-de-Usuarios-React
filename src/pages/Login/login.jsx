@@ -6,6 +6,7 @@ import imgButtonTwo from "/src/assets/planetBlue2.jpg"
 import imgButtonTree from "/src/assets/planetBlue.jpg"
 import api from '../../services/api.js'
 import { toast } from "react-toastify"
+import imgLogo from "../../assets/logo.png"
 
 
 
@@ -91,10 +92,10 @@ function Login() {
           </h1>
 
           <img
-            src="/src/assets/PlanetDestruction.png"
-            alt="Logo"
-            className="w-25 h-25 object-contain"
-          />
+      src={imgLogo}
+      alt="Logo"
+      className="w-20 h-20"
+    />
         </div>
 
 
