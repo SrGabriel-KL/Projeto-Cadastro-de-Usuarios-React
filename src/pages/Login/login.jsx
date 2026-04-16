@@ -93,7 +93,7 @@ function Login() {
           <img
       src={imgLogo}
       alt="Logo"
-      className="w-20 h-20"
+      className="w-25 h-25"
     />
         </div>
 
