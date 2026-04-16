@@ -1,12 +1,11 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import Login from "./pages/Login/login";
 import Home from "./pages/Home";
 import ListUsers from "./pages/ListUsers/usuarios";
-import Usuario from "./pages/Dashboard/usuario"
+import Usuario from "./pages/Dashboard/usuario";
 import ForgotPassword from "./pages/Password/ForgotPassword";
 
-
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Login />
@@ -27,6 +26,6 @@ const router = createBrowserRouter([
     path: "/recuperar-senha",
     element: <ForgotPassword />
   }
-])
+]);
 
-export default router
+export default router;
