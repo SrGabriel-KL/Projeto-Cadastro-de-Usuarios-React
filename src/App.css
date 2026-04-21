@@ -181,6 +181,10 @@ input, textarea {
 /*  LOGIN BASE (DESKTOP FIRST) */
 /* ========================= */
 
+/* ========================= */
+/*  BASE */
+/* ========================= */
+
 .page-login {
   padding: 20px;
 }
@@ -193,7 +197,7 @@ input, textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px; /* controla espaçamento geral */
+  gap: 16px;
 }
 
 .page-login h1 {
@@ -228,7 +232,7 @@ input, textarea {
   line-height: 1.2;
 }
 
-/* container do botão (IMPORTANTE) */
+/* container do botão */
 .page-login .btn-wrapper {
   margin-top: 20px;
 }
@@ -267,12 +271,7 @@ input, textarea {
     font-size: 14px;
   }
 
-  .page-login .flex.gap-6 {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-  }
+  /* 🔥 REMOVIDO seletor problemático (.flex.gap-6) */
 
   .page-login button {
     width: 100%;
@@ -288,7 +287,7 @@ input, textarea {
 
 
 /* ========================= */
-/*  MOBILE PEQUENO (até 360px) */
+/*  MOBILE PEQUENO */
 /* ========================= */
 
 @media (max-width: 360px) {
@@ -305,7 +304,6 @@ input, textarea {
     max-width: 200px;
     font-size: 13px;
   }
-
 }
 
 
@@ -331,12 +329,11 @@ input, textarea {
     padding: 16px;
     font-size: 16px;
   }
-
 }
 
 
 /* ========================= */
-/*  TELAS BAIXAS (altura pequena) */
+/*  TELAS BAIXAS */
 /* ========================= */
 
 @media (max-height: 700px) {
@@ -345,10 +342,7 @@ input, textarea {
     gap: 10px;
   }
 
-  .page-login .flex.gap-6 {
-    margin-top: 10px;
-    gap: 8px;
-  }
+  /* 🔥 REMOVIDO seletor problemático aqui também */
 
   .page-login .btn-wrapper {
     margin-top: 10px;
@@ -358,7 +352,6 @@ input, textarea {
     height: 50px;
     font-size: 14px;
   }
-
 }
 
 

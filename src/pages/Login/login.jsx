@@ -12,7 +12,6 @@ import fallbackImg from "/src/assets/img2.webp"
 function Login() {
   const inputLogin = useRef()
   const inputPassword = useRef()
-
   const navigate = useNavigate()
 
   async function handleLogin() {
@@ -37,21 +36,20 @@ function Login() {
 
       toast.success("Bem-vindo ao sistema Cosmo Sync!")
       navigate("/dashboard")
-    } catch (error) {
+    } catch {
       toast.error("Senha ou login incorretos.")
     }
   }
 
   return (
-    <div className="page-cadastro relative h-screen flex flex-col items-center justify-evenly p-5 overflow-hidden">
-    
-      {/* IMAGEM BASE */}
-     <div
-      className="fixed inset-0 bg-cover bg-center -z-20"
-      style={{ backgroundImage: `url(${fallbackImg})` }}
-    ></div>
-    
-      {/* VÍDEO */}
+    <div className="page-login relative h-screen flex flex-col items-center justify-evenly p-5 overflow-hidden">
+
+      {/* BACKGROUND */}
+      <div
+        className="fixed inset-0 bg-cover bg-center -z-20"
+        style={{ backgroundImage: `url(${fallbackImg})` }}
+      />
+
       <video
         className="fixed top-0 left-0 w-screen h-screen object-cover -z-10"
         src={VideoFundo}
@@ -59,65 +57,50 @@ function Login() {
         loop
         muted
         playsInline
-        preload="metadata"
-        poster={fallbackImg}
       />
-    
-      {/* OVERLAY */}
-      <div className="fixed inset-0 bg-black/20 -z-20 pointer-events-none"></div>
+
+      <div className="fixed inset-0 bg-black/20 -z-20 pointer-events-none" />
 
       <form className="flex flex-col items-center gap-8 h-full justify-center">
 
-        {/* LOGO + TITULO */}
+        {/* TÍTULO */}
         <div className="flex items-center justify-center gap-3">
-          <h1 className="text-[64px] font-['Orbitron'] font-semibold">
-            <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.9)]">
-              Cosmo
-            </span>{" "}
-            <span className="bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(59,130,246,0.6)]">
-              Sync
-            </span>
+          <h1 className="text-[64px] font-semibold">
+            <span className="text-white">Cosmo</span>{" "}
+            <span className="text-cyan-300">Sync</span>
           </h1>
 
-          <img src={imgLogo} alt="Logo" className="w-25 h-25" />
+          <img src={imgLogo} alt="Logo" className="w-20 h-20" />
         </div>
 
-        {/* SUBTITULO */}
-        <h2
-          className="text-[25px] font-light tracking-wide text-white drop-shadow-[0_0_16px_rgba(255,255,255,0.85)] text-center"
-          style={{ fontFamily: "Poppins, sans-serif" }}
-        >
+        <h2 className="text-[25px] text-white text-center">
           Login de Sistema
         </h2>
 
         {/* INPUTS */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 w-full max-w-[350px]">
           <input
-            className="w-full px-4 py-3 rounded-xl bg-white/15 backdrop-blur-sm border border-cyan-300/40 text-white placeholder:text-white/85 shadow-[0_0_20px_rgba(34,211,238,0.25)] focus:outline-none focus:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition-all duration-300"
+            className="w-full px-4 py-3 rounded-xl bg-white/15 text-white"
             type="text"
             placeholder="Login"
             ref={inputLogin}
           />
 
           <input
-            className="w-full px-4 py-3 rounded-xl bg-white/15 backdrop-blur-sm border border-cyan-300/40 text-white placeholder:text-white/85 shadow-[0_0_20px_rgba(34,211,238,0.25)] focus:outline-none focus:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition-all duration-300"
+            className="w-full px-4 py-3 rounded-xl bg-white/15 text-white"
             type="password"
             placeholder="Senha"
             ref={inputPassword}
           />
         </div>
 
-
-        <div className="flex gap-6 justify-center mt-12 translate-y-10">
+        {/* BOTÕES PRINCIPAIS */}
+        <div className="flex gap-6 justify-center mt-12 flex-wrap">
           <button
             type="button"
             onClick={handleLogin}
-            className="relative overflow-visible px-19 py-5 rounded-full text-white font-bold text-[22px] tracking-wide border border-black shadow-[0_0_20px_rgba(255,180,80,0.25)] hover:scale-105 transition-all duration-300 universe-button smoke-edge cursor-pointer"
-            style={{
-              backgroundImage: `url(${imgButtonTwo})`,
-              backgroundSize: "120%",
-              backgroundPosition: "center"
-            }}
+            className="btn-main"
+            style={{ backgroundImage: `url(${imgButtonTwo})` }}
           >
             Entrar
           </button>
@@ -125,32 +108,20 @@ function Login() {
           <button
             type="button"
             onClick={() => navigate("/home")}
-            className="relative overflow-visible px-12 py-5 rounded-full text-white font-bold text-[22px] tracking-wide border border-black shadow-[0_0_20px_rgba(255,180,80,0.25)] hover:scale-105 transition-all duration-300 universe-button smoke-edge cursor-pointer"
-            style={{
-              backgroundImage: `url(${imgButton})`,
-              backgroundSize: "115%",
-              backgroundPosition: "center"
-            }}
+            className="btn-main"
+            style={{ backgroundImage: `url(${imgButton})` }}
           >
-            Registra-se
+            Registrar-se
           </button>
         </div>
 
-
-        <div className="
-  w-full flex justify-center
-  mt-6
-  max-[480px]:mt-10
-  md:absolute md:left-6 md:bottom-6 md:w-auto md:block
-">          <button
+        {/* ESQUECI SENHA */}
+        <div className="btn-wrapper w-full flex justify-center md:absolute md:left-6 md:bottom-6 md:w-auto md:block">
+          <button
             type="button"
             onClick={() => navigate("/recuperar-senha")}
-            className="relative overflow-visible px-19 py-5 rounded-full text-white font-bold text-[22px] tracking-wide border border-black shadow-[0_0_20px_rgba(255,180,80,0.25)] hover:scale-105 transition-all duration-300 universe-button smoke-edge cursor-pointer"
-            style={{
-              backgroundImage: `url(${imgButtonTree})`,
-              backgroundSize: "120%",
-              backgroundPosition: "center"
-            }}
+            className="btn-main"
+            style={{ backgroundImage: `url(${imgButtonTree})` }}
           >
             Esqueci a Senha
           </button>
