@@ -8,6 +8,7 @@ import api from "../../services/api.js"
 import { toast } from "react-toastify"
 import imgLogo from "../../assets/planetDestruction.png"
 import fallbackImg from "/src/assets/img2.webp"
+import "./login.css"
 
 function Login() {
   const inputLogin = useRef()
@@ -95,7 +96,7 @@ function Login() {
         </div>
 
         {/* BOTÕES PRINCIPAIS */}
-        <div className="flex gap-6 justify-center mt-12 flex-wrap">
+        <div className="buttons-group flex gap-6 justify-center">
           <button
             type="button"
             onClick={handleLogin}

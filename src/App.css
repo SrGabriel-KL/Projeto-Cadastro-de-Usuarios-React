@@ -188,6 +188,9 @@ input, textarea {
 .page-login {
   padding: 20px;
 }
+.page-login .buttons-group {
+  margin-top: 40px;
+}
 
 .page-login form {
   max-width: 420px;
