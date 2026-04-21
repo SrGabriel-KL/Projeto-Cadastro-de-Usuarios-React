@@ -102,13 +102,13 @@ function App() {
 
 <div className="page-cadastro relative h-screen flex flex-col items-center justify-evenly p-5 overflow-hidden">
 
-  {/* 🖼️ IMAGEM BASE (carrega instantâneo) */}
+  {/* IMAGEM BASE */}
  <div
   className="fixed inset-0 bg-cover bg-center -z-20"
   style={{ backgroundImage: `url(${fallbackImg})` }}
 ></div>
 
-  {/* 🎥 VÍDEO */}
+  {/* VÍDEO */}
   <video
     className="fixed top-0 left-0 w-screen h-screen object-cover -z-10"
     src={VideoFundo}
@@ -120,7 +120,7 @@ function App() {
     poster={fallbackImg}
   />
 
-  {/* 🌑 OVERLAY */}
+  {/* OVERLAY */}
   <div className="absolute inset-0 bg-black/20 -z-10 pointer-events-none"></div>
 
     <form className="flex flex-col items-center gap-10 animate-fadeIn ">
