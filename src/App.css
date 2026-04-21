@@ -174,22 +174,12 @@ h1, h2, h3, h4, h5, h6, span, div, p {
 input, textarea {
   user-select: text;
 }
-
-
-
 /* ========================= */
-/*  LOGIN BASE (DESKTOP FIRST) */
-/* ========================= */
-
-/* ========================= */
-/*  BASE */
+/* BASE */
 /* ========================= */
 
 .page-login {
   padding: 20px;
-}
-.page-login .buttons-group {
-  margin-top: 40px;
 }
 
 .page-login form {
@@ -200,49 +190,44 @@ input, textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
 }
 
-.page-login h1 {
-  font-size: 50px;
+
+.page-login form > div:nth-of-type(3) {
+  margin-top: 50px;
 }
 
-.page-login h2 {
-  font-size: 18px;
-  text-align: center;
-}
-
-.page-login img {
-  width: 60px;
-  height: 60px;
-}
-
-.page-login input {
-  width: 100%;
-}
+/* ========================= */
+/*  BOTÕES */
+/* ========================= */
 
 .page-login button {
-  width: 280px;
-  height: 60px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 
   padding: 0;
-  font-size: 16px;
   line-height: 1.2;
+
+ 
 }
 
-/* container do botão */
-.page-login .btn-wrapper {
-  margin-top: 20px;
+/* container dos botões */
+.page-login .flex.gap-6 {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 60px;
 }
 
+
+.page-login .w-full.flex.justify-center.mt-4 {
+  margin-top: 30px;
+}
 
 /* ========================= */
-/*  MOBILE (ATÉ 480px) */
+/*  MOBILE */
 /* ========================= */
 
 @media (max-width: 480px) {
@@ -256,12 +241,14 @@ input, textarea {
   }
 
   .page-login h1 {
-    font-size: 28px;
-    line-height: 1.1;
+    flex-wrap: wrap;
+    white-space: normal;
+    gap: 6px;
   }
 
   .page-login h2 {
     font-size: 15px;
+    text-align: center;
   }
 
   .page-login img {
@@ -270,73 +257,37 @@ input, textarea {
   }
 
   .page-login input {
+    width: 100%;
     padding: 10px;
     font-size: 14px;
   }
 
-  /* 🔥 REMOVIDO seletor problemático (.flex.gap-6) */
+  
+  .page-login form > div:nth-of-type(3) {
+    margin-top: 20px;
+  }
 
+  
+  .page-login .flex.gap-6 {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  
   .page-login button {
-    width: 100%;
-    max-width: 220px;
-    height: 55px;
     font-size: 14px;
   }
 
-  .page-login .btn-wrapper {
-    margin-top: 25px;
+  .page-login .w-full.flex.justify-center.mt-4 {
+    position: static;
+    margin-top: 20px;
   }
 }
 
-
 /* ========================= */
-/*  MOBILE PEQUENO */
-/* ========================= */
-
-@media (max-width: 360px) {
-
-  .page-login h1 {
-    font-size: 24px;
-  }
-
-  .page-login h2 {
-    font-size: 13px;
-  }
-
-  .page-login button {
-    max-width: 200px;
-    font-size: 13px;
-  }
-}
-
-
-/* ========================= */
-/*  TABLET */
-/* ========================= */
-
-@media (min-width: 768px) and (max-width: 1024px) {
-
-  .page-login form {
-    max-width: 500px;
-  }
-
-  .page-login h1 {
-    font-size: 50px;
-  }
-
-  .page-login h2 {
-    font-size: 20px;
-  }
-
-  .page-login input {
-    padding: 16px;
-    font-size: 16px;
-  }
-}
-
-
-/* ========================= */
-/*  TELAS BAIXAS */
+/* TELAS BAIXAS */
 /* ========================= */
 
 @media (max-height: 700px) {
@@ -345,17 +296,39 @@ input, textarea {
     gap: 10px;
   }
 
-  /* 🔥 REMOVIDO seletor problemático aqui também */
+  .page-login .flex.gap-6 {
+    margin-top: 30px;
+    gap: 10px;
+  }
 
-  .page-login .btn-wrapper {
-    margin-top: 10px;
+  .page-login .w-full.flex.justify-center.mt-4 {
+    margin-top: 15px;
   }
 
   .page-login button {
-    height: 50px;
     font-size: 14px;
   }
 }
+
+/* ========================= */
+/*  DESKTOP (TÍTULO) */
+/* ========================= */
+
+.page-login h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+
+
+
+
+
 
 
 
