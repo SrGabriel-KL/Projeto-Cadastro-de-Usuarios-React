@@ -100,19 +100,24 @@ function App() {
 
   return (
 
-  <div className="page-cadastro relative h-screen flex flex-col items-center justify-evenly p-5 overflow-hidden">
+<div className="page-cadastro relative h-screen flex flex-col items-center justify-evenly p-5 overflow-hidden">
 
-    {/* Vídeo de fundo */}
-    <video
-      className="fixed top-0 left-0 w-screen h-screen object-cover -z-10"
-      src={VideoFundo}
-      autoPlay
-      loop
-      muted
-      playsInline
-    />
+  {/* FUNDO PRETO */}
+  <div className="fixed inset-0 bg-black -z-20"></div>
 
-    <div className="absolute inset-0 bg-black/20 -z-10"></div>
+  {/* VÍDEO */}
+  <video
+    className="fixed top-0 left-0 w-screen h-screen object-cover -z-10"
+    src={VideoFundo}
+    autoPlay
+    loop
+    muted
+    playsInline
+    preload="auto"
+  />
+
+  {/* OVERLAY */}
+  <div className="absolute inset-0 bg-black/20 -z-10 pointer-events-none"></div>
 
     <form className="flex flex-col items-center gap-10 animate-fadeIn ">
 
