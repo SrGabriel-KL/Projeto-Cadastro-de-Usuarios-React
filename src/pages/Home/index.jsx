@@ -116,7 +116,8 @@ function App() {
     loop
     muted
     playsInline
-    preload="auto"
+    preload="metadata"
+    poster={fallbackImg}
   />
 
   {/* 🌑 OVERLAY */}
