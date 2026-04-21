@@ -16,7 +16,7 @@ function ForgotPassword() {
 
   async function handleRecuperarSenha() {
     try {
-      const response = await axios.post("http://localhost:3000/recuperar-senha", {
+      axios.post(`${import.meta.env.VITE_API_URL}/recuperar-senha`, {
         email
       })
 
@@ -43,7 +43,7 @@ function ForgotPassword() {
     }
 
     try {
-      const response = await axios.put("http://localhost:3000/atualizar-senha", {
+      axios.put(`${import.meta.env.VITE_API_URL}/atualizar-senha`, {
         email,
         novaSenha
       })
