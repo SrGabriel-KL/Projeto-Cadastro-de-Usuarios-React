@@ -3,9 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
 @layer base {
   body {
-    
-  }
+  margin: 0;
+  background: #000; 
 }
+
+}
+
+
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
@@ -158,6 +162,710 @@ input:-webkit-autofill:active {
     #8f2212
   );
 }
+
+
+
+
+h1, h2, h3, h4, h5, h6, span, div, p {
+  user-select: none;
+}
+
+
+input, textarea {
+  user-select: text;
+}
+
+
+
+/* ========================= */
+/*  LOGIN BASE */
+/* ========================= */
+
+.page-login form {
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-login button {
+  width: 280px;        
+  height: 60px;        
+  padding: 0;          
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+/* ========================= */
+/*  MOBILE (ATÉ 480px) */
+/* ========================= */
+
+@media (max-width: 480px) {
+
+  .page-login {
+    padding: 10px;
+  }
+
+ 
+
+  .page-login form {
+    gap: 16px;
+    height: auto;
+  }
+
+  
+  .page-login h1 {
+    font-size: 28px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  
+  .page-login h2 {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  
+  .page-login img {
+    width: 50px;
+    height: 50px;
+  }
+
+  
+  .page-login input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  
+  .page-login .flex.gap-6 {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    transform: none;
+  }
+
+  
+  .page-login button {
+    width: 100%;
+    max-width: 220px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  
+  .page-login .w-full.flex.justify-center.mt-4 {
+    position: static;
+    margin-top: 12px;
+  }
+
+}
+
+/* ========================= */
+/*  MOBILE PEQUENO (S8 / SE) */
+/* ========================= */
+
+@media (max-width: 360px) {
+
+  .page-login h1 {
+    font-size: 24px;
+  }
+
+  .page-login h2 {
+    font-size: 13px;
+  }
+
+  .page-login button {
+    max-width: 200px;
+    font-size: 13px;
+    margin-top: 25px;
+  }
+
+}
+
+/* ========================= */
+/*  TABLET */
+/* ========================= */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .page-login form {
+    max-width: 500px;
+  }
+
+  .page-login h1 {
+    font-size: 50px;
+  }
+
+  .page-login h2 {
+    font-size: 20px;
+  }
+
+  .page-login input {
+    padding: 16px;
+    font-size: 16px;
+  }
+
+}
+
+/* ========================= */
+/*  DESKTOP */
+/* ========================= */
+
+@media (min-width: 1024px) {
+
+  .page-login h1 {
+    font-size: 50px;
+  }
+
+}
+
+
+
+
+/* ========================= */
+/*  PADRÃO REAL DOS BOTÕES */
+/* ========================= */
+
+.page-login button {
+  width: 280px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 0; 
+  line-height: 1.2;
+}
+
+
+@media (max-width: 480px) {
+
+  .page-login button {
+    width: 240px;
+    height: 55px;
+    font-size: 14px;
+
+    padding: 0; 
+  }
+   .page-login .w-full.flex.justify-center.mt-4 {
+    margin-top: 35px; 
+  }
+
+}
+
+/* ========================= */
+/*  TELAS BAIXAS (Nest Hub etc) */
+/* ========================= */
+
+@media (max-height: 700px) {
+
+  
+  .page-login form {
+    gap: 10px;
+  }
+
+  
+  .page-login .flex.gap-6 {
+    margin-top: 10px;
+    gap: 8px;
+  }
+
+  
+  .page-login .w-full.flex.justify-center.mt-4 {
+    margin-top: 10px;
+  }
+
+ 
+  .page-login button {
+    height: 50px;
+    font-size: 14px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/*  BASE CADASTRO */
+/* ========================= */
+
+.page-cadastro form {
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+/* ========================= */
+/*  MOBILE (ATÉ 480px) */
+/* ========================= */
+
+@media (max-width: 480px) {
+
+  .page-cadastro {
+    padding: 10px;
+  }
+
+  .page-cadastro form {
+    gap: 16px;
+  }
+
+  
+  .page-cadastro h1 {
+    font-size: 28px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .page-cadastro h2 {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  
+  .page-cadastro img {
+    width: 50px;
+    height: 50px;
+  }
+
+  
+  .page-cadastro input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  
+  .page-cadastro button {
+    width: 100%;
+    max-width: 240px;
+    height: 55px;
+    font-size: 14px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+   .page-cadastro .buttons button,
+  .page-cadastro .btn-voltar-1 button {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 260px;
+    height: 55px;
+
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+
+
+}
+
+/* ========================= */
+/*  MOBILE PEQUENO */
+/* ========================= */
+
+@media (max-width: 360px) {
+
+  .page-cadastro h1 {
+    font-size: 24px;
+  }
+
+  .page-cadastro h2 {
+    font-size: 13px;
+  }
+
+  .page-cadastro button {
+    max-width: 220px;
+    font-size: 13px;
+  }
+
+}
+
+/* ========================= */
+/*  TABLET */
+/* ========================= */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .page-cadastro form {
+    max-width: 500px;
+  }
+
+  .page-cadastro h1 {
+    font-size: 50px;
+  }
+
+  .page-cadastro h2 {
+    font-size: 20px;
+  }
+
+  .page-cadastro input {
+    padding: 16px;
+    font-size: 16px;
+  }
+
+}
+
+/* ========================= */
+/* TELAS BAIXAS (Nest Hub etc) */
+/* ========================= */
+
+@media (max-height: 700px) {
+
+  .page-cadastro form {
+    gap: 10px;
+  }
+
+  .page-cadastro button {
+    height: 50px;
+    font-size: 14px;
+  }
+
+}
+
+/* ========================= */
+/*  DESKTOP */
+/* ========================= */
+
+@media (min-width: 1024px) {
+
+  .page-cadastro h1 {
+    font-size: 64px;
+  }
+
+  .page-cadastro button {
+    width: auto;
+    max-width: none;
+    height: auto;
+    padding: 18px 50px;
+    font-size: 18px;
+  }
+
+}
+
+
+/* ========================= */
+/*  DESKTOP AJUSTE FINO */
+/* ========================= */
+
+@media (min-width: 1024px) {
+
+  
+  .page-cadastro form {
+    width: 100%;
+    max-width: 360px; 
+    margin: 0 auto;
+    margin-top: -10px;
+    align-items: center;
+  }
+  
+
+ 
+ .page-cadastro h1 {
+  white-space: nowrap;   
+  display: flex;
+  align-items: center;
+  margin-top: -110px;
+  gap: 10px;
+}
+
+  
+  .page-cadastro h2 {
+    margin-top: -25px;
+    gap: 10px;
+    font-size: 22px;
+  }
+
+  
+  .page-cadastro form > div:nth-of-type(2) {
+    width: 80%;
+    margin-top: -20px;
+  }
+
+  
+  .page-cadastro form > div:nth-of-type(2) > div {
+    margin-bottom: 10px;
+  }
+
+  .page-cadastro input {
+    padding: 10px 14px;
+  }
+
+  .page-cadastro img {
+    margin-top: -100px;
+  }
+
+  
+  .page-cadastro .buttons {
+    margin-top: 25px;
+  }
+
+  .page-cadastro .buttons button {
+    min-width: 240px;
+  }
+
+  
+  .page-cadastro .btn-voltar-1 {
+    position: absolute;
+    left: 40px;
+    bottom: 27px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/*  BASE DASHBOARD */
+/* ========================= */
+
+.page-dashboard {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ========================= */
+/*  MOBILE (até 480px) */
+/* ========================= */
+
+
+
+@media (max-width: 480px) {
+
+  /* 🔥 GRID MAIS LIMPO */
+  .page-dashboard .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 16px;
+    width: 100%;
+    justify-items: center;
+  }
+
+  
+  .page-dashboard .grid > div {
+    width: 100%;
+    max-width: 160px;
+    height: 230px;
+  }
+
+  
+  .page-dashboard .grid > div:last-child {
+    grid-column: span 2; 
+    max-width: 200px;
+  }
+
+  
+  .page-dashboard .grid img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .page-dashboard .grid h2 {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .page-dashboard .grid p {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  
+  .page-dashboard .mb-16 > div {
+    width: 90%;
+    padding: 16px;
+  }
+
+}
+
+
+
+/* ========================= */
+/*  TABLET (até 768px) */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .page-dashboard h1 {
+    text-align: center;
+  }
+
+  .page-dashboard .grid {
+    justify-items: center;
+  }
+
+}
+
+/* ========================= */
+/*  DESKTOP PEQUENO */
+/* ========================= */
+
+@media (min-width: 1024px) {
+
+  .page-dashboard {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+}
+
+/* ========================= */
+/*  TELAS BAIXAS (Nest Hub) */
+/* ========================= */
+
+@media (max-height: 700px) {
+
+  .page-dashboard {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .page-dashboard .grid {
+    gap: 16px;
+  }
+
+}
+
+/* ========================= */
+/*  TELAS GRANDES */
+/* ========================= */
+
+@media (min-width: 1400px) {
+
+  .page-dashboard .grid {
+    max-width: 1200px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/*  BASE SEGURA */
+/* ========================= */
+
+.list-users-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ========================= */
+/*  MOBILE (até 480px) */
+/* ========================= */
+
+@media (max-width: 480px) {
+
+  
+  .list-users-page h2 {
+    line-height: 1.2;
+  }
+
+  
+  .list-users-page .btn-center-fixed {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+/* ========================= */
+/*  TABLET (até 768px) */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .list-users-page h2 {
+    text-align: center;
+  }
+
+}
+
+/* ========================= */
+/*  TELAS BAIXAS (Nest Hub) */
+/* ========================= */
+
+@media (max-height: 700px) {
+
+  .list-users-page {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -385,3 +1093,7 @@ input:-webkit-autofill:active {
     border-right-color: var(--border);
   }
 }
+
+
+
+

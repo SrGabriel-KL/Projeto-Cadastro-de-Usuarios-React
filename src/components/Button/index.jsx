@@ -1,5 +1,3 @@
-
-
 function DefaultButton({
   children,
   onClick,
@@ -13,8 +11,14 @@ function DefaultButton({
       onClick={onClick}
       className={`
         relative overflow-visible
-        px-16 py-5 rounded-full
-        text-white font-bold text-[22px]
+        px-8 py-3
+        md:px-12 md:py-4
+        lg:px-16 lg:py-5
+        rounded-full
+        text-white font-bold
+        text-sm
+        md:text-lg
+        lg:text-[22px]
         tracking-wide
         border border-black
         shadow-[0_0_20px_rgba(255,180,80,0.25)]

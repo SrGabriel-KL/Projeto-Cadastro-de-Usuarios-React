@@ -8,50 +8,41 @@ import api from "../../services/api.js"
 import { toast } from "react-toastify"
 import imgLogo from "../../assets/planetDestruction.png"
 
-
-
 function Login() {
   const inputLogin = useRef()
   const inputPassword = useRef()
 
   const navigate = useNavigate()
 
-
-
   async function handleLogin() {
-  const login = inputLogin.current.value.trim()
-  const password = inputPassword.current.value.trim()
+    const login = inputLogin.current.value.trim()
+    const password = inputPassword.current.value.trim()
 
-  if (!login || !password) {
-    toast("Preencha login e senha válidos.")
-    return
+    if (!login || !password) {
+      toast("Preencha login e senha válidos.")
+      return
+    }
+
+    try {
+      const response = await api.post("/login", {
+        name: login,
+        password
+      })
+
+      sessionStorage.setItem(
+        "usuarioDashboard",
+        JSON.stringify(response.data.user)
+      )
+
+      toast.success("Bem-vindo ao sistema Cosmo Sync!")
+      navigate("/dashboard")
+    } catch (error) {
+      toast.error("Senha ou login incorretos.")
+    }
   }
-
-  try {
-    const response = await api.post("/login", {
-      name: login,
-      password
-    })
-
-    console.log("LOGIN OK:", response.data)
-
-    sessionStorage.setItem (
-      "usuarioDashboard",
-      JSON.stringify(response.data.user)
-    )
-
-    toast.success("Bem-vindo ao sistema Cosmo Sync!")
-    navigate("/dashboard")
-  } catch (error) {
-    console.error("ERRO LOGIN:", error.response?.data || error)
-    toast.error("Senha ou login incorretos.")
-  }
-}
-
-
 
   return (
-    <div className="relative h-screen flex flex-col items-center justify-evenly p-5 overflow-hidden">
+    <div className="page-login relative h-screen flex flex-col items-center justify-center gap-10 p-5 overflow-hidden">
 
       <video
         className="fixed top-0 left-0 w-screen h-screen object-cover -z-10"
@@ -62,143 +53,55 @@ function Login() {
         playsInline
       />
 
-      <div className="absolute inset-0 bg-black/20 -z-10"></div>
+      <div className="absolute inset-0 bg-black/20 -z-10 pointer-events-none"></div>
 
-      <form className="flex flex-col items-center gap-12">
+      <form className="flex flex-col items-center gap-8 h-full justify-center">
 
+        {/* LOGO + TITULO */}
         <div className="flex items-center justify-center gap-3">
           <h1 className="text-[64px] font-['Orbitron'] font-semibold">
-            <span
-              className="
-      text-white
-      drop-shadow-[0_0_12px_rgba(255,255,255,0.9)]
-    "
-            >
+            <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.9)]">
               Cosmo
-            </span>{' '}
-            <span
-              className="
-      bg-gradient-to-r
-      from-cyan-300
-      to-blue-500
-      bg-clip-text
-      text-transparent
-      drop-shadow-[0_0_15px_rgba(59,130,246,0.6)]
-    "
-            >
+            </span>{" "}
+            <span className="bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(59,130,246,0.6)]">
               Sync
             </span>
           </h1>
 
-          <img
-      src={imgLogo}
-      alt="Logo"
-      className="w-25 h-25"
-    />
+          <img src={imgLogo} alt="Logo" className="w-25 h-25" />
         </div>
 
-
-
+        {/* SUBTITULO */}
         <h2
-          className="
-      text-[25px]
-      font-light
-      tracking-wide
-      text-white
-      drop-shadow-[0_0_16px_rgba(255,255,255,0.85)]
-      text-center
-    "
+          className="text-[25px] font-light tracking-wide text-white drop-shadow-[0_0_16px_rgba(255,255,255,0.85)] text-center"
           style={{ fontFamily: "Poppins, sans-serif" }}
         >
           Login de Sistema
         </h2>
 
+        {/* INPUTS */}
         <div className="flex flex-col gap-4">
           <input
-            className="w-full px-4 py-3 rounded-xl 
-  bg-white/15
-  backdrop-blur-sm
-  border border-cyan-300/40
-  text-white
-  placeholder:text-white/85
-  shadow-[0_0_20px_rgba(34,211,238,0.25)]
-  focus:outline-none
-  focus:shadow-[0_0_25px_rgba(34,211,238,0.6)]
-  transition-all duration-300
-  "
+            className="w-full px-4 py-3 rounded-xl bg-white/15 backdrop-blur-sm border border-cyan-300/40 text-white placeholder:text-white/85 shadow-[0_0_20px_rgba(34,211,238,0.25)] focus:outline-none focus:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition-all duration-300"
             type="text"
             placeholder="Login"
             ref={inputLogin}
-
           />
 
           <input
-            className="w-full px-4 py-3 rounded-xl
-  bg-white/15
-  backdrop-blur-sm
-  border border-cyan-300/40
-  text-white
-  placeholder:text-white/85
-  shadow-[0_0_20px_rgba(34,211,238,0.25)]
-  focus:outline-none
-  focus:shadow-[0_0_25px_rgba(34,211,238,0.6)]
-  transition-all duration-300"
+            className="w-full px-4 py-3 rounded-xl bg-white/15 backdrop-blur-sm border border-cyan-300/40 text-white placeholder:text-white/85 shadow-[0_0_20px_rgba(34,211,238,0.25)] focus:outline-none focus:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition-all duration-300"
             type="password"
             placeholder="Senha"
             ref={inputPassword}
-
           />
         </div>
 
 
-
-        <div className="absolute left-6 bottom-6">
-          <button
-            type="button"
-            onClick={() => navigate("/recuperar-senha")}
-            className="
-                     relative overflow-visible
-                     px-19 py-5 rounded-full
-                     text-white font-bold text-[22px]
-                     tracking-wide
-                     border border-black
-                     shadow-[0_0_20px_rgba(255,180,80,0.25)]
-                     hover:scale-105
-                     transition-all duration-300
-                     universe-button
-                     smoke-edge
-                     cursor-pointer
-                   "
-            style={{
-              backgroundImage: `url(${imgButtonTree})`,
-              backgroundSize: "120%",
-              backgroundPosition: "center"
-            }}
-          >
-            Esqueci a Senha
-          </button>
-        </div>
-
-
-
-
-        <div className="flex gap-6 justify-center mt-6">
+        <div className="flex gap-6 justify-center mt-12 translate-y-10">
           <button
             type="button"
             onClick={handleLogin}
-            className="
-                     relative overflow-visible
-                     px-19 py-5 rounded-full
-                     text-white font-bold text-[22px]
-                     tracking-wide
-                     border border-black
-                     shadow-[0_0_20px_rgba(255,180,80,0.25)]
-                     hover:scale-105
-                     transition-all duration-300
-                     universe-button
-                     smoke-edge
-                     cursor-pointer
-                   "
+            className="relative overflow-visible px-19 py-5 rounded-full text-white font-bold text-[22px] tracking-wide border border-black shadow-[0_0_20px_rgba(255,180,80,0.25)] hover:scale-105 transition-all duration-300 universe-button smoke-edge cursor-pointer"
             style={{
               backgroundImage: `url(${imgButtonTwo})`,
               backgroundSize: "120%",
@@ -210,21 +113,8 @@ function Login() {
 
           <button
             type="button"
-            onClick={()=> navigate("/home")}
-            className="
-                   px-16 py-5 rounded-full text-white font-bold
-                     relative overflow-visible
-                     px-12 py-0 rounded-full
-                     text-white font-bold text-[22px]
-                     tracking-wide
-                     border border-black
-                     shadow-[0_0_20px_rgba(255,180,80,0.25)]
-                     hover:scale-105
-                     transition-all duration-300
-                     universe-button
-                     smoke-edge
-                     cursor-pointer
-                   "
+            onClick={() => navigate("/home")}
+            className="relative overflow-visible px-12 py-5 rounded-full text-white font-bold text-[22px] tracking-wide border border-black shadow-[0_0_20px_rgba(255,180,80,0.25)] hover:scale-105 transition-all duration-300 universe-button smoke-edge cursor-pointer"
             style={{
               backgroundImage: `url(${imgButton})`,
               backgroundSize: "115%",
@@ -234,11 +124,30 @@ function Login() {
             Registra-se
           </button>
         </div>
+
+
+        <div className="
+  w-full flex justify-center
+  mt-6
+  max-[480px]:mt-10
+  md:absolute md:left-6 md:bottom-6 md:w-auto md:block
+">          <button
+            type="button"
+            onClick={() => navigate("/recuperar-senha")}
+            className="relative overflow-visible px-19 py-5 rounded-full text-white font-bold text-[22px] tracking-wide border border-black shadow-[0_0_20px_rgba(255,180,80,0.25)] hover:scale-105 transition-all duration-300 universe-button smoke-edge cursor-pointer"
+            style={{
+              backgroundImage: `url(${imgButtonTree})`,
+              backgroundSize: "120%",
+              backgroundPosition: "center"
+            }}
+          >
+            Esqueci a Senha
+          </button>
+        </div>
+
       </form>
     </div>
-
   )
-
 }
 
 export default Login

@@ -100,236 +100,174 @@ function App() {
 
   return (
 
-    <div className="relative h-screen flex flex-col items-center justify-evenly p-5 overflow-hidden">
+  <div className="page-cadastro relative h-screen flex flex-col items-center justify-evenly p-5 overflow-hidden">
 
-      {/* 🎥 Vídeo de fundo */}
-      <video
-        className="fixed top-0 left-0 w-screen h-screen object-cover -z-10"
-        src={VideoFundo}
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
+    {/* Vídeo de fundo */}
+    <video
+      className="fixed top-0 left-0 w-screen h-screen object-cover -z-10"
+      src={VideoFundo}
+      autoPlay
+      loop
+      muted
+      playsInline
+    />
 
-      {/* 🔥 Overlay escuro opcional (melhora contraste) */}
-      <div className="absolute inset-0 bg-black/20 -z-10"></div>
-      <form className="flex flex-col items-center gap-10 animate-fadeIn ">
+    <div className="absolute inset-0 bg-black/20 -z-10"></div>
 
+    <form className="flex flex-col items-center gap-10 animate-fadeIn ">
 
+      <div className="flex flex-col items-center justify-center gap-3">
 
-        <div className="flex flex-col items-center justify-center gap-3">
+        <div className="flex items-center justify-center gap-3">
+          <h1 className="text-[64px] font-['Orbitron'] font-semibold">
+            <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.9)]">
+              Cosmo
+            </span>{' '}
+            <span className="bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(59,130,246,0.6)]">
+              Sync
+            </span>
+          </h1>
 
-          {/* Linha de cima: título + imagem */}
-          <div className="flex items-center justify-center gap-3">
-            <h1 className="text-[64px] font-['Orbitron'] font-semibold">
-              <span
-                className="
-      text-white
-      drop-shadow-[0_0_12px_rgba(255,255,255,0.9)]
-    "
-              >
-                Cosmo
-              </span>{' '}
-              <span
-                className="
-      bg-gradient-to-r
-      from-cyan-300
-      to-blue-500
-      bg-clip-text
-      text-transparent
-      drop-shadow-[0_0_15px_rgba(59,130,246,0.6)]
-    "
-              >
-                Sync
-              </span>
-            </h1>
-
-            <img
-                  src={imgLogo}
-                  alt="Logo"
-                  className="w-25 h-25"
-                />
-          </div>
-
-          {/* Linha de baixo */}
-          <h2
-            className="
-      text-[25px]
-      font-light
-      tracking-wide
-      text-white
-      drop-shadow-[0_0_16px_rgba(255,255,255,0.85)]
-      text-center
-    "
-            style={{ fontFamily: "Poppins, sans-serif" }}
-          >
-            Cadastro de Usuários
-          </h2>
-
+          <img src={imgLogo} alt="Logo" className="w-25 h-25" />
         </div>
 
+        <h2
+          className="text-[25px] font-light tracking-wide text-white drop-shadow-[0_0_16px_rgba(255,255,255,0.85)] text-center"
+          style={{ fontFamily: "Poppins, sans-serif" }}
+        >
+          Cadastro de Usuários
+        </h2>
 
-        <div className="flex flex-col gap-1 -mt-6">
-          <div>
-            <label className="text-center text-[15px] font-normal text-white">
-              Login<span>*</span>
-            </label>
-            <input
-              className="w-full px-4 py-3 rounded-xl 
-  bg-white/15
-  backdrop-blur-sm
-  border border-cyan-300/40
-  text-white
-  placeholder:text-white/85
-  shadow-[0_0_20px_rgba(34,211,238,0.25)]
-  focus:outline-none
-  focus:shadow-[0_0_25px_rgba(34,211,238,0.6)]
+      </div>
+
+      
+      <div className="justify-center items-start pt-10 relative">
+
+        <div>
+          <label className="text-center text-[15px] font-normal text-white">
+            Login<span>*</span>
+          </label>
+          <input
+            className="w-full px-4 py-3 rounded-xl bg-white/15 backdrop-blur-sm border border-cyan-300/40 text-white placeholder:text-white/85 shadow-[0_0_20px_rgba(34,211,238,0.25)] focus:outline-none focus:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition-all duration-300"
+            type="text"
+            placeholder="Login do Usuário"
+            ref={inputName}
+          />
+        </div>
+
+        <div>
+          <label className="text-center text-[15px] font-normal text-white">
+            Idade<span>*</span>
+          </label>
+          <input
+            className="w-full px-4 py-3 rounded-xl bg-white/15 backdrop-blur-sm border border-cyan-300/40 text-white placeholder:text-white/85 shadow-[0_0_20px_rgba(34,211,238,0.25)] focus:outline-none focus:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition-all duration-300"
+            type="number"
+            placeholder="Idade do Usuário"
+            ref={inputAge}
+          />
+        </div>
+
+        <div>
+          <label className="text-center text-[15px] font-normal text-white">
+            Email<span>*</span>
+          </label>
+
+          <input
+            type="email"
+            placeholder="E-mail do Usuário"
+            ref={inputEmail}
+            className="w-full px-4 py-3 rounded-xl bg-white/15 backdrop-blur-sm border border-cyan-300/40 text-white placeholder:text-white/85 outline-none shadow-[0_0_20px_rgba(34,211,238,0.25)] focus:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition-all duration-300"
+          />
+        </div>
+
+        <div>
+          <label className="text-center text-[15px] font-normal text-white">
+            Senha<span>*</span>
+          </label>
+          <input
+            className="w-full px-4 py-3 rounded-xl bg-white/15 backdrop-blur-sm border border-cyan-300/40 text-white placeholder:text-white/85 shadow-[0_0_20px_rgba(34,211,238,0.25)] focus:outline-none focus:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition-all duration-300"
+            type="password"
+            placeholder="Senha do Usuário"
+            ref={inputPassword}
+          />
+        </div>
+
+      </div>
+
+      {/* CADASTRAR */}
+      <div className="btn-voltar buttons relative md:fixed md:bottom-7 md:left-0 md:right-0 flex justify-center mt-6">
+        <button
+          type="button"
+          onClick={registerNewUser}
+         className="
+  relative overflow-visible
+  px-19 py-5 rounded-full
+  text-white font-bold text-[22px]
+  tracking-wide
+  border border-black
+  shadow-[0_0_20px_rgba(255,180,80,0.25)]
+  hover:scale-105
   transition-all duration-300
-  "
-              type="text"
-              placeholder="Login do Usuário"
-              ref={inputName}
+  universe-button
+  smoke-edge
+  cursor-pointer
 
-            />
-          </div>
+  max-[480px]:w-[260px]
+  max-[480px]:h-[55px]
+  max-[480px]:px-0
+  max-[480px]:flex
+  max-[480px]:items-center
+  max-[480px]:justify-center
+"
+          style={{
+            backgroundImage: `url(${img3})`,
+            backgroundSize: "113%",
+            backgroundPosition: "center"
+          }}
+        >
+          Cadastrar
+        </button>
+      </div>
 
-          <div>
-            <label className="text-center text-[15px] font-normal text-white">
-              Idade<span>*</span>
-            </label>
-            <input
-              className="w-full px-4 py-3 rounded-xl
-  bg-white/15
-  backdrop-blur-sm
-  border border-cyan-300/40
-  text-white
-  placeholder:text-white/85
-  shadow-[0_0_20px_rgba(34,211,238,0.25)]
-  focus:outline-none
-  focus:shadow-[0_0_25px_rgba(34,211,238,0.6)]
-  transition-all duration-300"
-              type="number"
-              placeholder="Idade do Usuário"
-              ref={inputAge}
+      {/* VOLTAR */}
+      <div className="btn-voltar-1 mt-4 flex justify-center md:absolute md:left-6 md:bottom-6">
+        <button
+          type="button"
+          onClick={() => navigate('/')}
+          className="
+  relative overflow-visible
+  px-6 py-3
+  rounded-full
+  text-white font-bold text-[16px]
+  tracking-wide
+  border border-black
+  shadow-[0_0_20px_rgba(255,180,80,0.25)]
+  hover:scale-105
+  transition-all duration-300
+  universe-button
+  smoke-edge
+  cursor-pointer
 
-            />
+  max-[480px]:w-[260px]
+  max-[480px]:h-[55px]
+  max-[480px]:px-0
+  max-[480px]:flex
+  max-[480px]:items-center
+  max-[480px]:justify-center
+"
+          style={{
+            backgroundImage: `url(${imgButtonSecundary})`,
+            backgroundSize: "115%",
+            backgroundPosition: "center"
+          }}
+        >
+          Voltar a tela de login
+        </button>
+      </div>
 
-          </div>
-
-          <div>
-            <label className="text-center text-[15px] font-normal text-white">
-              Email<span>*</span>
-            </label>
-
-            <input
-              type="email"
-              placeholder="E-mail do Usuário"
-              ref={inputEmail}
-              className="
-      w-full
-      px-4 py-3
-      rounded-xl
-      bg-white/15
-      backdrop-blur-sm
-      border border-cyan-300/40
-      text-white
-      placeholder:text-white/85
-      outline-none
-      shadow-[0_0_20px_rgba(34,211,238,0.25)]
-      focus:shadow-[0_0_25px_rgba(34,211,238,0.6)]
-      transition-all duration-300
-    "
-            />
-          </div>
-
-
-
-          <div>
-            <label className="text-center text-[15px] font-normal text-white">
-              Senha<span>*</span>
-            </label>
-            <input
-              className="w-full px-4 py-3 rounded-xl
-  bg-white/15
-  backdrop-blur-sm
-  border border-cyan-300/40
-  text-white
-  placeholder:text-white/85
-  shadow-[0_0_20px_rgba(34,211,238,0.25)]
-  focus:outline-none
-  focus:shadow-[0_0_25px_rgba(34,211,238,0.6)]
-  transition-all duration-300"
-              type="password"
-              placeholder="Senha do Usuário"
-              ref={inputPassword}
-            />
-          </div>
-
-
-
-
-        </div>
-
-        <div className="flex justify-center mt-0">
-          <button
-            type="button"
-            onClick={registerNewUser}
-            className="
-              relative overflow-visible
-              px-19 py-5 rounded-full
-              text-white font-bold text-[22px]
-              tracking-wide
-              border border-black
-              shadow-[0_0_20px_rgba(255,180,80,0.25)]
-              hover:scale-105
-              transition-all duration-300
-              universe-button
-              smoke-edge
-              cursor-pointer
-            "
-            style={{
-              backgroundImage: `url(${img3})`,
-              backgroundSize: "113%",
-              backgroundPosition: "center"
-            }}
-          >
-            Cadastrar
-          </button>
-        </div>
-
-        <div className="absolute left-6 bottom-7">
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="
-      relative overflow-visible
-      px-10 py-5 rounded-full
-      text-white font-bold text-[22px]
-      tracking-wide
-      border border-black
-      shadow-[0_0_20px_rgba(255,180,80,0.25)]
-      hover:scale-105
-      transition-all duration-300
-      universe-button
-      smoke-edge
-      cursor-pointer
-    "
-            style={{
-              backgroundImage: `url(${imgButtonSecundary})`,
-              backgroundSize: "115%",
-              backgroundPosition: "center"
-            }}
-
-          >
-            Voltar a tela de login
-
-          </button >
-
-        </div>
-      </form>
-    </div>
-  )
+    </form>
+  </div>
+)
 }
 
 export default App
