@@ -178,29 +178,59 @@ input, textarea {
 
 
 /* ========================= */
-/*  LOGIN BASE */
+/*  LOGIN BASE (DESKTOP FIRST) */
 /* ========================= */
+
+.page-login {
+  padding: 20px;
+}
 
 .page-login form {
   max-width: 420px;
   width: 100%;
   margin: 0 auto;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px; /* já garante espaçamento padrão */
+  gap: 16px; /* controla espaçamento geral */
+}
+
+.page-login h1 {
+  font-size: 50px;
+}
+
+.page-login h2 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.page-login img {
+  width: 60px;
+  height: 60px;
+}
+
+.page-login input {
+  width: 100%;
 }
 
 .page-login button {
   width: 280px;
   height: 60px;
-  padding: 0;
-  font-size: 16px;
 
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+/* container do botão (IMPORTANTE) */
+.page-login .btn-wrapper {
+  margin-top: 20px;
 }
 
 
@@ -216,18 +246,15 @@ input, textarea {
 
   .page-login form {
     gap: 16px;
-    height: auto;
   }
 
   .page-login h1 {
     font-size: 28px;
-    text-align: center;
     line-height: 1.1;
   }
 
   .page-login h2 {
     font-size: 15px;
-    text-align: center;
   }
 
   .page-login img {
@@ -236,7 +263,6 @@ input, textarea {
   }
 
   .page-login input {
-    width: 100%;
     padding: 10px;
     font-size: 14px;
   }
@@ -255,16 +281,14 @@ input, textarea {
     font-size: 14px;
   }
 
-  /* ajuste REAL do botão */
   .page-login .btn-wrapper {
     margin-top: 25px;
   }
-
 }
 
 
 /* ========================= */
-/*  MOBILE PEQUENO */
+/*  MOBILE PEQUENO (até 360px) */
 /* ========================= */
 
 @media (max-width: 360px) {
@@ -312,20 +336,7 @@ input, textarea {
 
 
 /* ========================= */
-/*  DESKTOP */
-/* ========================= */
-
-@media (min-width: 1024px) {
-
-  .page-login h1 {
-    font-size: 50px;
-  }
-
-}
-
-
-/* ========================= */
-/*  TELAS BAIXAS */
+/*  TELAS BAIXAS (altura pequena) */
 /* ========================= */
 
 @media (max-height: 700px) {
@@ -349,7 +360,6 @@ input, textarea {
   }
 
 }
-
 
 
 
