@@ -188,13 +188,15 @@ input, textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 16px; /* já garante espaçamento padrão */
 }
 
 .page-login button {
-  width: 280px;        
-  height: 60px;        
-  padding: 0;          
+  width: 280px;
+  height: 60px;
+  padding: 0;
   font-size: 16px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,66 +214,57 @@ input, textarea {
     padding: 10px;
   }
 
- 
-
   .page-login form {
     gap: 16px;
     height: auto;
   }
 
-  
   .page-login h1 {
     font-size: 28px;
     text-align: center;
     line-height: 1.1;
   }
 
-  
   .page-login h2 {
     font-size: 15px;
     text-align: center;
   }
 
-  
   .page-login img {
     width: 50px;
     height: 50px;
   }
 
-  
   .page-login input {
     width: 100%;
     padding: 10px;
     font-size: 14px;
   }
 
-  
   .page-login .flex.gap-6 {
     flex-direction: column;
     align-items: center;
     gap: 10px;
     margin-top: 10px;
-    transform: none;
   }
 
-  
   .page-login button {
     width: 100%;
     max-width: 220px;
-    padding: 10px;
+    height: 55px;
     font-size: 14px;
   }
 
-  
-  .page-login .w-full.flex.justify-center.mt-4 {
-    position: static;
-    margin-top: 12px;
+  /* ajuste REAL do botão */
+  .page-login .btn-wrapper {
+    margin-top: 25px;
   }
 
 }
 
+
 /* ========================= */
-/*  MOBILE PEQUENO (S8 / SE) */
+/*  MOBILE PEQUENO */
 /* ========================= */
 
 @media (max-width: 360px) {
@@ -287,10 +280,10 @@ input, textarea {
   .page-login button {
     max-width: 200px;
     font-size: 13px;
-    margin-top: 25px;
   }
 
 }
+
 
 /* ========================= */
 /*  TABLET */
@@ -317,6 +310,7 @@ input, textarea {
 
 }
 
+
 /* ========================= */
 /*  DESKTOP */
 /* ========================= */
@@ -330,71 +324,31 @@ input, textarea {
 }
 
 
-
-
 /* ========================= */
-/*  PADRÃO REAL DOS BOTÕES */
-/* ========================= */
-
-.page-login button {
-  width: 280px;
-  height: 60px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  padding: 0; 
-  line-height: 1.2;
-}
-
-
-@media (max-width: 480px) {
-
-  .page-login button {
-    width: 240px;
-    height: 55px;
-    font-size: 14px;
-
-    padding: 0; 
-  }
-   .page-login .w-full.flex.justify-center.mt-4 {
-    margin-top: 35px; 
-  }
-
-}
-
-/* ========================= */
-/*  TELAS BAIXAS (Nest Hub etc) */
+/*  TELAS BAIXAS */
 /* ========================= */
 
 @media (max-height: 700px) {
 
-  
   .page-login form {
     gap: 10px;
   }
 
-  
   .page-login .flex.gap-6 {
     margin-top: 10px;
     gap: 8px;
   }
 
-  
-  .page-login .w-full.flex.justify-center.mt-4 {
+  .page-login .btn-wrapper {
     margin-top: 10px;
   }
 
- 
   .page-login button {
     height: 50px;
     font-size: 14px;
   }
 
 }
-
 
 
 
