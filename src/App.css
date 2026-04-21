@@ -163,10 +163,7 @@ input:-webkit-autofill:active {
   );
 }
 
-input, button {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
+
 
 
 h1, h2, h3, h4, h5, h6, span, div, p {

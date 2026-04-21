@@ -64,7 +64,7 @@ function Login() {
       />
     
       {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black/20 -z-10 pointer-events-none"></div>
+      <div className="fixed inset-0 bg-black/20 -z-20 pointer-events-none"></div>
 
       <form className="flex flex-col items-center gap-8 h-full justify-center">
 
