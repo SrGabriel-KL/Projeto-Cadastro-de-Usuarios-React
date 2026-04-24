@@ -1,16 +1,26 @@
-# React + Vite
+# 🚀 Cosmo Sync
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de autenticação full stack com foco em segurança, integração com APIs e experiência do usuário.
 
-Currently, two official plugins are available:
+🔗 Deploy: (coloque aqui seu link)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ⚙️ Tecnologias
+- React
+- Node.js
+- Express
+- Prisma
+- MySQL
+- Tailwind CSS
 
-## React Compiler
+## 💡 Funcionalidades
+- Cadastro de usuários  
+- Login com autenticação  
+- Recuperação de senha  
+- Integração com API REST  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📱 Responsivo
+Desktop • Tablet • Mobile
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 👨‍💻 Autor
+Gabriel Sena  
+https://www.linkedin.com/in/gabriel-sena-kl/
