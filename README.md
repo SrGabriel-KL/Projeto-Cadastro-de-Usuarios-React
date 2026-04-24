@@ -2,7 +2,7 @@
 
 Sistema de autenticação full stack com foco em segurança, integração com APIs e experiência do usuário.
 
-🔗 Deploy: (coloque aqui seu link)
+🔗 Deploy: (https://srgabriel-kl.github.io/Projeto-Cadastro-de-Usuarios-React/)
 
 ## ⚙️ Tecnologias
 - React
